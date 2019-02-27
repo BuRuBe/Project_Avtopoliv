@@ -1,7 +1,11 @@
 body {
 	margin: 0;
 	height: 800px;
-	background: linear-gradient(90deg, #5A5959, #222222);
+	background: rgb(227,227,227); /* Old browsers */
+	background: -moz-linear-gradient(45deg, rgb(227,227,227) 3%, rgb(238,238,238) 41%, rgb(237,237,237) 63%, rgb(246,246,246) 79%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(45deg, rgb(227,227,227) 3%,rgb(238,238,238) 41%,rgb(237,237,237) 63%,rgb(246,246,246) 79%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(45deg, rgb(227,227,227) 3%,rgb(238,238,238) 41%,rgb(237,237,237) 63%,rgb(246,246,246) 79%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#f6f6f6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .development {
 	position: relative;
@@ -11,21 +15,6 @@ body {
 	height: auto;
 	width: 85%;
 }
-.backgroundBox {
-	height: auto;
-	padding: 5px 0 30px 0;
-
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f2f2+0,dadada+100 */
-background: rgb(242,242,242); /* Old browsers */
-background: -moz-linear-gradient(left, rgb(242,242,242) 0%, rgb(218,218,218) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left, rgb(242,242,242) 0%,rgb(218,218,218) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right, rgb(242,242,242) 0%,rgb(218,218,218) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#dadada',GradientType=1 ); /* IE6-9 */
-}
-.additionalBox {
-	width: 85% !important;
-	margin-left: 7.5% !important;
-}
 .boxLink {
 	text-transform: none;
 	color: #000000 !important;
@@ -34,19 +23,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	display: inline-block;
 	position: fixed;
 	background: #C4C4C4;
-	width: 50px;
-	height: 120px;
-	border-radius: 5px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
 	overflow: hidden;
-	top: 25%;
+	top: 80%;
 	right: 0;
 	z-index: 998;
+	opacity: 0.5;
 }
 #callbackImage {
-	width: 35px;
-	height: 35px;
-	margin: 0 auto;
-	margin-top: 2px;
+	width: 50px;
+	height: 50px;
+	margin: 20% auto 0 auto;
+	margin-left: 27%;
 	background-repeat: no-repeat; 
 }
 #callback a {
@@ -55,16 +45,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 }
 #callback:hover {
 	background-color: #E8E8E8;
+	opacity: 1;
+	-webkit-transition: opacity 0.1s;
+	-moz-transition: opacity 0.1s;
+	-o-transition: opacity 0.1s;
+	transition: opacity 0.1s;
 }
-#callback p {
-	display: block;
-	position: relative;
-	top: 20px;
-	transform: rotate(270deg);
-	font-size: 1.1em;
-	margin: 0 auto;
-	direction: rtl;
-}
+/* Тестовая версия со страницей калькулятора и кнопкой в меню
 #calc {
 	display: inline-block;
 	position: fixed;
@@ -99,39 +86,71 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	font-size: 1em;
 	margin: 0 auto;
 	direction: rtl;
+}*/
+.callbackForm {
+	display: none;
+	border-radius: 3px;
+	padding: 0 0 15px 15px;
+	margin: 0;
+	z-index: 999;
+}
+.formActive {
+	display: block !important;
+	background-color: #E3E2E0;
+	position: fixed !important;
+	top: 35%;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+.formInactive {
+	display: none;
+}
+.callbackArea {
+	position: fixed;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	z-index: 999;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.callbackText {
+	color: black;
+	text-transform: none;
+	text-align: justify;
 }
 .logo {
 	display: inline-block;
 	font-family: "Didot Bold";
 	font-size: 3em;
-	color: #FFFBFE;
+	color: rgb(5, 5, 5);
 }
 .aboutCompany {
-	background: #FFFFFF;
+	background: #1F1E1E;
 	border: 1px solid #000000;
 	box-shadow: inset 0px 3px 30px 6px rgba(0,0,0,0.25);
 	font-family: "Helvetica Neue Thin";
-	font-color: #000000;
-	border-radius: 5px;
+	color: #f0eaea;
 	margin: 0 auto;
+	padding: 25px;
 }
 .aboutCompany p{
 	padding: 10px;
 }
 .info {
-	background: #FFFFFF;
-	border: 1px solid #000000;
-	box-shadow: inset 0px 3px 30px 6px rgba(0,0,0,0.25);
 	font-family: "Helvetica Neue Thin";
-	font-color: #000000;
-	border-radius: 5px;
-	margin: 30px auto 0 auto;
+	color: #000000;
+	margin: 0 auto;
 }
 .info p {
 	display: inline-block;
 	padding: 10px;
 	width: calc(100% - 330px);
 	font-size: 1.1em;
+}
+.colorBox {
+	background-color: #F2F1ED !important;
 }
 .Titles {
 	font-size: 1.4em !important;
@@ -144,19 +163,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	border: 1px solid #000000;
 	box-shadow: inset 0px 3px 30px 6px rgba(0,0,0,0.25);
 	font-family: "Helvetica Neue Thin";
-	font-color: #000000;
+	color: #000000;
 	border-radius: 5px;
 	margin: 15px auto;
 	height: 200px;
 }
 .text {
 	font-family: "Helvetica Neue Thin";
+	font-size: 1.15em;
 }
 .navbar {
 	text-align: justify;
 	/*position: fixed;*/
-	z-index: 999;
-	background-color: #C4C4C4;
+	z-index: 997;
+	background-color: rgb(255, 251, 251);
 	padding: 0 !important;
 	margin-bottom: 0 !important;
 }
@@ -226,10 +246,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	.backgroundBox {
 		padding-top: 5px;
 	}
-	.additionalBox {
-	width: 100% !important;
-	margin-left: 0 !important;
-	}
 	.nav {
 		display: none;
 	}
@@ -262,7 +278,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 		color: #000000;
 		text-decoration: none;
 		padding-top: 10px;
-		padding-bot: 5px;
 		text-align: center;
 		border-bottom: 1px solid #eee;
 	}
@@ -284,6 +299,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 		text-align: center;
 		font-family: "Helvetica Neue Thin";
 		color: #0D0D0D !important;
+	}
+	.mobileHide {
+		display: none !important;
 	}
 	#mapContacts {
 		width: calc(100% - 20px) !important;
@@ -337,9 +355,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 }
 /* Slide-gallery*/
 .slider {
-	width: 83.3%;
-	margin: 45px auto;
-	height: 500px;
+	width: 100%;
+	margin: 0 auto 20px auto;
+	height: 40%;
 }
 #slides, #slidesMarket {
 	position: relative;
@@ -372,7 +390,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	height: 100px;
  }
 .sliderMarket {
-	display: inline-block;
 	width: 300px;
 	height: 200px;
 	float: left;
@@ -413,13 +430,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	z-index: 2;
 }
 .footer {
-	margin: 0 auto 20px auto;
-	padding: 10px 0 20px 0;
-	color: #FFFFFF;
+	margin: 0 auto;
+	padding: 30px 0 20px 0;
+	background-color: rgb(0, 0, 0);
 }
 .footer p {
 	width: auto;
 	padding: 5px;
+	color: #FFFFFF
 }
 .communicationMobile {
 	display: inline-block;
@@ -464,6 +482,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 	font-size: 1.3em;
 	margin: 10px auto;
 	text-align: center;
+	color: #000000;
 }
 .cityPhone, .mobilePhone, .emailImg, .callImg {
 	margin: 10px auto;
@@ -482,6 +501,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', end
 }
 .callImg {
 	width: 96px;
+}
+.buttonHover:hover {
+	background-color: #EDFEFB;	
 }
 /*Helpful page*/
 .titleBlock {
